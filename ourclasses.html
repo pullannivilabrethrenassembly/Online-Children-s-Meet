@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Class Day</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to Google Fonts for Quicksand font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+      /* General Styles */
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif; /* Apply Quicksand font */
+        line-height: 1.6;
+        color: #333;
+        background-color: #fffcf5;
+      }
+
+      /* General Layout */
+      .container {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Space between the boxes */
+        flex-wrap: wrap; /* Wrap to next line if necessary */
+        padding: 20px;
+      }
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+          url("hero-image.jpg") no-repeat center center/cover;
+        text-align: center;
+        padding: 100px 0;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      }
+
+      .hero h1 span {
+        color: #ff6b6b;
+        font-style: italic;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .hero .btn {
+        padding: 12px 24px;
+        margin: 0 10px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .btn-primary {
+        background: #ff6b6b;
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-secondary {
+        background: #ffba00;
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Hero Buttons Styles */
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Space between buttons */
+      }
+
+      .hero-buttons a {
+        padding: 12px 24px;
+        margin: 0 10px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      /* Class Day Section */
+      .class-day {
+        background: #fce4ec;
+        text-align: center;
+        padding: 50px 25px;
+      }
+
+      .class-day h2 {
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+        color: #ff4081;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      }
+
+      .class-day p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #555;
+      }
+
+      .class-day-details {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        justify-content: space-between;
+        gap: 20px; /* Adjusted gap for better spacing */
+      }
+
+      .class-day-detail {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex: 1 1 250px; /* Ensures each box takes up equal space */
+        min-height: 250px; /* Makes sure all boxes are the same height */
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+      }
+      .class-day-detail select {
+        padding: 8px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+
+      /* Time Box Styling */
+      .time-box {
+        background: #ffeb3b;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 250px; /* Set a fixed width for consistency */
+        min-height: 150px; /* Ensure consistent height */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box; /* Include padding in the width and height */
+      }
+
+      /* Title and Local Time styling */
+      .time-box h2 {
+        font-size: 1.5rem;
+        color: #ff6b6b;
+        margin-bottom: 10px;
+      }
+
+      .time-box .time {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      /* Button or additional information */
+      .time-box .btn {
+        padding: 10px 20px;
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .time-box .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .class-day-detail:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .class-day-detail .icon {
+        background: #ff6b6b;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .class-day-detail .icon i {
+        color: #fff;
+        font-size: 1.8rem;
+      }
+
+      .class-day-detail h3 {
+        margin: 15px 0;
+        font-size: 1.2rem;
+        color: #ff6b6b;
+      }
+
+      .class-day-detail p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0;
+      }
+
+      /* About Section */
+      .about {
+        text-align: center;
+        padding: 50px 0;
+        background: #fff;
+      }
+
+      .about img {
+        width: 300px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .about h2 {
+        font-size: 2.5rem;
+        color: #4caf50;
+        margin-bottom: 10px;
+      }
+
+      .about p {
+        font-size: 1.2rem;
+        color: #666;
+      }
+
+      /* Footer */
+      .footer {
+        background: #ff6b6b;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .footer p {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center; /* Center buttons vertically */
+        }
+
+        .hero-buttons a {
+          width: 60%; /* Make buttons full-width on mobile */
+          text-align: center;
+          margin-bottom: 15px; /* Space between stacked buttons */
+        }
+
+        .class-day h2 {
+          font-size: 2rem;
+        }
+
+        .class-day p {
+          font-size: 1rem;
+        }
+
+        .class-day-details {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .class-day-detail {
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .about img {
+          width: 80%;
+        }
+
+        .about h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* Extra Small Mobile Adjustments */
+      @media (max-width: 480px) {
+        .hero {
+          padding: 60px 0;
+        }
+
+        .hero h1 {
+          font-size: 1.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero .btn {
+          padding: 10px 15px;
+          font-size: 0.9rem;
+        }
+
+        .about img {
+          width: 100%;
+        }
+
+        .about h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      .contact {
+        padding: 20px;
+        text-align: center;
+        background-color: #f9f9f9;
+      }
+
+      .contact h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-family: "Lato", sans-serif;
+      }
+
+      .contact-boxes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .contact-box {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 200px;
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .contact-box p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .icons {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .icons a {
+        text-decoration: none;
+        color: #fff;
+        padding: 8px 10px;
+        border-radius: 4px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+
+      .call-icon {
+        background-color: #007bff;
+      }
+
+      .whatsapp-icon {
+        background-color: #25d366;
+      }
+
+      .icons i {
+        margin-right: 5px;
+      }
+
+      @media (max-width: 768px) {
+        /* Hero Section */
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+          padding: 0 15px; /* Add padding for better text spacing */
+        }
+
+        .hero .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px; /* Space between stacked buttons */
+        }
+
+        .hero-buttons a {
+          width: 80%; /* Full-width buttons */
+          text-align: center;
+        }
+
+        /* Class Day Section */
+        .class-day-details {
+          flex-direction: column; /* Stack the details */
+          align-items: center;
+          gap: 20px;
+        }
+
+        .class-day-detail {
+          width: 100%; /* Full-width for each detail */
+          max-width: 90%; /* Prevent overflow */
+          margin: 0 auto; /* Center details */
+        }
+
+        /* Contact Section */
+        .contact-box {
+          width: 100%; /* Full-width boxes */
+          margin: 10px 0; /* Space between boxes */
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* Extra adjustments for very small screens */
+        .hero {
+          padding: 40px 0;
+        }
+
+        .hero h1 {
+          font-size: 1.5rem;
+        }
+
+        .hero p {
+          font-size: 0.9rem;
+        }
+
+        .hero .btn {
+          padding: 10px 15px;
+          font-size: 0.9rem;
+        }
+
+        .class-day h2 {
+          font-size: 1.8rem;
+        }
+
+        .class-day p {
+          font-size: 1rem;
+        }
+
+        .about img {
+          width: 100%; /* Ensure image is fully responsive */
+        }
+
+        .about h2 {
+          font-size: 1.8rem;
+        }
+
+        .contact-box {
+          padding: 10px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+          <h1>Meet your friends<span> Every Saturday</span></h1>
+          <p>
+            “Let the little children come to me, and do not hinder them, for the
+            kingdom of heaven belongs to such as these.” - Matthew 19:14
+          </p>
+          <div class="hero-buttons">
+            <a href="form.html" class="btn btn-primary">Register Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="class-day">
+      <div class="class-day-details" data-aos="fade-up">
+        <div class="class-day-detail">
+          <div class="icon">
+            <i class="fas fa-calendar-day"></i>
+            <!-- Icon for Day -->
+          </div>
+          <h3>Day</h3>
+          <p><b>Every Saturday</b></p>
+        </div>
+
+        <section class="class-days">
+          <div class="class-day-details">
+            <div class="class-day-detail">
+              <div class="icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Time</h3>
+              <p><b>6:00 PM </b>(India Standard Time)</p>
+
+              <label for="country-select">Select your country:</label>
+              <select id="country-select">
+                <option value="saudi-arabia">Saudi Arabia</option>
+                <option value="united-arab-emirates">
+                  United Arab Emirates
+                </option>
+                <option value="kuwait">Kuwait</option>
+                <option value="oman">Oman</option>
+                <option value="qatar">Qatar</option>
+                <option value="united-states">United States</option>
+                <option value="singapore">Singapore</option>
+                <option value="malaysia">Malaysia</option>
+                <option value="bahrain">Bahrain</option>
+                <option value="canada">Canada</option>
+                <option value="australia">Australia</option>
+                <option value="united-kingdom">United Kingdom</option>
+                <option value="south-africa">South Africa</option>
+                <option value="sri-lanka">Sri Lanka</option>
+                <option value="thailand">Thailand</option>
+                <option value="new-zealand">New Zealand</option>
+                <option value="germany">Germany</option>
+                <option value="italy">Italy</option>
+                <option value="norway">Norway</option>
+                <option value="sweden">Sweden</option>
+                <option value="russia">Russia</option>
+                <option value="france">France</option>
+                <option value="mauritius">Mauritius</option>
+                <option value="japan">Japan</option>
+              </select>
+
+              <p id="local-time" class="time-output">Local Time: --</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="class-day-detail">
+          <div class="icon">
+            <i class="fas fa-laptop"></i>
+            <!-- Icon for Mode -->
+          </div>
+          <h3>Mode</h3>
+          <p><b>Online</b> <br />(link will be shared upon registration)</p>
+        </div>
+
+        <div class="class-day-detail">
+          <div class="icon">
+            <i class="fas fa-language"></i>
+            <!-- Icon for Medium -->
+          </div>
+          <h3>Medium</h3>
+          <p><b>Malayalam</b></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h2>For More Details Contact Us</h2>
+      <div class="container" data-aos="fade-up">
+        <div class="contact-boxes">
+          <!-- Contact Box 1 -->
+          <div class="contact-box">
+            <p>+91 88487 25040</p>
+            <div class="icons">
+              <a href="tel:+918848725040" class="call-icon">
+                <i class="fas fa-phone"></i> Call
+              </a>
+              <a
+                href="https://wa.me/918848725040"
+                target="_blank"
+                class="whatsapp-icon"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+          <!-- Contact Box 2 -->
+          <div class="contact-box">
+            <p>+91 82819 14980</p>
+            <div class="icons">
+              <a href="tel:+918281914980" class="call-icon">
+                <i class="fas fa-phone"></i> Call
+              </a>
+              <a
+                href="https://wa.me/918281914980"
+                target="_blank"
+                class="whatsapp-icon"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+          <!-- Contact Box 3 -->
+          <div class="contact-box">
+            <p>+91 99951 33810</p>
+            <div class="icons">
+              <a href="tel:+919995133810" class="call-icon">
+                <i class="fas fa-phone"></i> Call
+              </a>
+              <a
+                href="https://wa.me/919995133810"
+                target="_blank"
+                class="whatsapp-icon"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+          <!-- Contact Box 4 -->
+          <div class="contact-box">
+            <p>+91 95676 22105</p>
+            <div class="icons">
+              <a href="tel:+919567622105" class="call-icon">
+                <i class="fas fa-phone"></i> Call
+              </a>
+              <a
+                href="https://wa.me/919567622105"
+                target="_blank"
+                class="whatsapp-icon"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>© 2024 Pullannivila Brethren Assembly . All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      // Function to convert time from IST to different time zones
+      function convertTime() {
+        const country = document.getElementById("country-select").value;
+
+        // Time zone offsets (in hours) from IST (India Standard Time, GMT+5:30)
+        const timeZoneOffsets = {
+          "united-arab-emirates": -1.5, // UTC +4:00 (IST - 1 hour 30 minutes)
+          "saudi-arabia": -2.5, // UTC +3:00 (IST - 2 hours 30 minutes)
+          kuwait: -2.5, // UTC +3:00 (IST - 2 hours 30 minutes)
+          oman: -1.5, // UTC +4:00 (IST - 1 hour 30 minutes)
+          qatar: -2.5, // UTC +3:00 (IST - 2 hours 30 minutes)
+          "united-states": -10.5, // UTC -5:00 (IST - 10 hours 30 minutes) - Eastern Time Zone
+          singapore: 2.5, // UTC +8:00 (IST - 2 hours 30 minutes)
+          malaysia: 2.5, // UTC +8:00 (IST - 2 hours 30 minutes)
+          bahrain: -2.5, // UTC +3:00 (IST - 2 hours 30 minutes)
+          canada: -10.5, // UTC -5:00 (IST - 10 hours 30 minutes) - Eastern Time Zone
+          australia: 4.5, // UTC +10:00 (IST - 4 hours 30 minutes)
+          "united-kingdom": -5.5, // UTC +0:00 (IST - 5 hours 30 minutes)
+          "south-africa": -3.5, // UTC +2:00 (IST - 3 hours 30 minutes)
+          "sri-lanka": 0, // UTC +5:30 (IST - Same time)
+          thailand: 2.5, // UTC +7:00 (IST - 2 hours 30 minutes)
+          "new-zealand": 6.5, // UTC +12:00 (IST - 6 hours 30 minutes)
+          germany: -4.5, // UTC +1:00 (IST - 4 hours 30 minutes)
+          italy: -4.5, // UTC +1:00 (IST - 4 hours 30 minutes)
+          norway: -4.5, // UTC +1:00 (IST - 4 hours 30 minutes)
+          sweden: -4.5, // UTC +1:00 (IST - 4 hours 30 minutes)
+          russia: -2.5, // UTC +3:00 (IST - 2 hours 30 minutes) - Moscow
+          france: -4.5, // UTC +1:00 (IST - 4 hours 30 minutes)
+          mauritius: -1.5, // UTC +4:00 (IST - 1 hour 30 minutes)
+          japan: 3.5, // UTC +9:00 (IST - 3 hours 30 minutes)
+        };
+
+        // IST time (6:00 PM)
+        const istTime = new Date("2024-12-07T18:00:00+05:30"); // Adjust for IST (GMT+5:30)
+
+        // Convert to the selected country's time
+        const offset = timeZoneOffsets[country];
+        if (offset === undefined) return; // If no country is selected or unknown
+
+        istTime.setHours(istTime.getHours() + offset);
+
+        // Format the time
+        const options = { hour: "2-digit", minute: "2-digit" };
+        const localTimeString = istTime.toLocaleTimeString("en-US", options);
+
+        // Display the time in green color
+        document.getElementById(
+          "local-time"
+        ).innerText = `Local Time: ${localTimeString}`;
+        document.getElementById("local-time").style.color = "green"; // Set color to green
+      }
+
+      // Add an event listener to trigger time conversion when a country is selected
+      document
+        .getElementById("country-select")
+        .addEventListener("change", convertTime);
+
+      // Run the function initially to show the default local time for Saudi Arabia (or default country)
+      convertTime();
+    </script>
+    <script>
+      AOS.init({
+        duration: 1200, // Animation duration in milliseconds
+        easing: "ease-in-out", // Smooth easing for animations
+        once: true, // Animation will only happen once (when scrolling down)
+      });
+    </script>
+  </body>
+</html>

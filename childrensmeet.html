@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Children's Meet</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to Google Fonts for Quicksand font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+      /* General Styles */
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif; /* Apply Quicksand font */
+        line-height: 1.6;
+        color: #333;
+        background-color: #fffcf5;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+          url("hero-image.jpg") no-repeat center center/cover;
+        text-align: center;
+        padding: 100px 0;
+        color: #fff;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #ffeb3b;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      }
+
+      .hero h1 span {
+        color: #ff6b6b;
+        font-style: italic;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .hero .btn {
+        padding: 12px 24px;
+        margin: 0 10px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .btn-primary {
+        background: #ff6b6b;
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-secondary {
+        background: #ffba00;
+        color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Hero Buttons Styles */
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Space between buttons */
+      }
+
+      .hero-buttons a {
+        padding: 12px 24px;
+        margin: 0 10px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      /* Features Section */
+      .features {
+        background: #fce4ec;
+        padding: 50px 0;
+        text-align: center;
+      }
+
+      .features h2 {
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+        color: #ff4081;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      }
+
+      .features p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #555;
+      }
+
+      .feature-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 13px;
+      }
+
+      .feature-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 250px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .feature-item .icon {
+        background: #ff6b6b;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+      }
+
+      .feature-item h3 {
+        margin: 15px 0;
+        font-size: 1.2rem;
+        color: #ff6b6b;
+      }
+
+      /* About Section */
+      .about {
+        text-align: center;
+        padding: 50px 0;
+        background: #fff;
+      }
+
+      .about img {
+        width: 300px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .about h2 {
+        font-size: 2.5rem;
+        color: #4caf50;
+        margin-bottom: 10px;
+      }
+
+      .about p {
+        font-size: 1.2rem;
+        color: #666;
+      }
+
+      /* Footer */
+      .footer {
+        background: #ff6b6b;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .footer p {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .feature-item .icon {
+        background: #ff6b6b;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 24px; /* Adjust the icon size */
+      }
+
+      .feature-item .icon i {
+        font-size: 24px; /* Ensure icon size is appropriate */
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center; /* Center buttons vertically */
+        }
+
+        .hero-buttons a {
+          width: 60%; /* Make buttons full-width on mobile */
+          text-align: center;
+          margin-bottom: 15px; /* Space between stacked buttons */
+        }
+
+        .features h2 {
+          font-size: 2rem;
+        }
+
+        .features p {
+          font-size: 1rem;
+        }
+
+        .feature-items {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .feature-item {
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .about img {
+          width: 80%;
+        }
+
+        .about h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* Extra Small Mobile Adjustments */
+      @media (max-width: 480px) {
+        .hero {
+          padding: 60px 0;
+        }
+
+        .hero h1 {
+          font-size: 1.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .hero .btn {
+          padding: 10px 15px;
+          font-size: 0.9rem;
+        }
+
+        .about img {
+          width: 100%;
+        }
+
+        .about h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      /* About Section */
+      .about {
+        text-align: center;
+        padding: 50px 0;
+        background: #fff;
+      }
+
+      .about img {
+        width: 80%; /* Set width to 80% on mobile */
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: width 0.3s ease; /* Smooth transition for width change */
+      }
+
+      /* Desktop View */
+      @media (min-width: 1024px) {
+        .about img {
+          width: 60%; /* Make the image 60% on desktop */
+        }
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 768px) {
+        .about img {
+          width: 80%; /* Set width to 80% on mobile */
+        }
+      }
+
+      /* Extra Small Mobile Adjustments */
+      @media (max-width: 480px) {
+        .about img {
+          width: 100%; /* Set width to 100% on extra small mobile screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+          <h1>Online <span>Children's Meet</span></h1>
+          <p>
+            “Train up a child in the way he should go; even when he is old, he
+            will not depart from it.” - Proverbs 22:6
+          </p>
+          <div class="hero-buttons">
+            <a href="form.html" class="btn btn-primary">Click for Register</a>
+            <a href="ourclasses.html" class="btn btn-secondary">Our Classes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>Welcome to Online Children's Meet</h2>
+        <p>A Ministry of Pullannivila Brethren Assembly</p>
+        <div class="feature-items" data-aos="fade-up">
+          <div class="feature-item">
+            <div class="icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <!-- Icon for Expert Teachers -->
+            </div>
+            <h3>Expert Teachers</h3>
+            <p>
+              Our godly, highly skilled and experienced teachers guide students
+              with dedication, creating an environment that fosters spiritual
+              growth and academic excellence.
+            </p>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">
+              <i class="fas fa-book"></i>
+              <!-- Icon for Parents Day -->
+            </div>
+            <h3>Quality Study Materials</h3>
+            <p>
+              Access comprehensive and thoughtfully prepared study materials
+              that complement each lesson, ensuring a well-rounded learning
+              experience.
+            </p>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">
+              <i class="fas fa-music"></i>
+              <!-- Icon for Music Lessons -->
+            </div>
+            <h3>Music & Lessons</h3>
+            <p>
+              Our Online Children's Meet combine the joy of music with enriching
+              lessons from the Bible. Designed for all ages, these sessions
+              foster spiritual growth, community, and creativity.
+            </p>
+          </div>
+
+          <div class="feature-item">
+            <div class="icon">
+              <i class="fas fa-user-tie"></i>
+              <!-- Icon for Music Lessons -->
+            </div>
+            <h3>Mentors</h3>
+            <p>
+              Benefit from the guidance of dedicated mentors who are always
+              available to provide encouragement, answer questions, and help
+              students grow in their faith.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" data-aos="fade-right">
+      <div class="container">
+        <h2>About Us</h2>
+        <img class="about-image" src="assemblygroup.jpg" alt="About Image" />
+        <p>
+          Welcome to our online children’s meeting program, designed to inspire
+          young minds to grow in faith and knowledge. Our classes provide a fun,
+          interactive, and educational environment.
+        </p>
+        <p>
+          <strong
+            >Jesus said, “Let the little children come to me, and do not hinder
+            them, for the kingdom of heaven belongs to such as these.”
+            <br />–Matthew 19:14
+          </strong>
+        </p>
+        <p>
+          We believe that faith and learning go hand in hand, helping children
+          develop strong spiritual and academic foundations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Pullannivila Brethren Assembly . All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      AOS.init({
+        duration: 1000, // Duration for animations (1 second)
+        easing: "ease-in-out", // Easing function for smooth transitions
+        once: true, // Animations will only run once
+        offset: 200, // Distance from the top to trigger animation
+      });
+    </script>
+  </body>
+</html>
